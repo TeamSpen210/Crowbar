@@ -3,7 +3,7 @@ Imports System.IO
 Module Main
 
 	' Entry point of application.
-	Public Function Main() As Integer
+	Public Function Main(ByVal argv() As String) As Integer
 		'' Create a job with JOB_OBJECT_LIMIT_KILL_ON_JOB_CLOSE flag, so that all processes 
 		''	(e.g. HLMV called by Crowbar) associated with the job 
 		''	terminate when the last handle to the job is closed.
@@ -37,6 +37,11 @@ Module Main
 		TheApp = New App()
 		'Try
 		TheApp.Init()
+
+		If argv.Length > 0 Then
+			Return CommandLine.Run(argv)
+		End If
+
 		If TheApp.Settings.AppIsSingleInstance Then
 			SingleInstanceApplication.Run(New MainForm(), AddressOf StartupNextInstanceEventHandler)
 		Else
