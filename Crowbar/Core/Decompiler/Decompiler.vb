@@ -56,6 +56,39 @@ Public Class Decompiler
 		Return Me.theOutputPathOrModelOutputFileName
 	End Function
 
+	Public Function DecompileCommandLine(inputMDL As String, outputFolder As String, logFile As TextWriter) As AppEnums.StatusMessage
+		Me.theSkipCurrentModelIsActive = False
+		Me.theLogFileStream = logFile
+		Me.theInputMdlPathName = FileManager.GetPath(inputMDL)
+		Me.theOutputPath = outputFolder
+
+		Me.theDecompiledQcFiles.Clear()
+		Me.theDecompiledFirstRefSmdFiles.Clear()
+		Me.theDecompiledFirstLodSmdFiles.Clear()
+		Me.theDecompiledPhysicsFiles.Clear()
+		Me.theDecompiledVtaFiles.Clear()
+		Me.theDecompiledFirstBoneAnimSmdFiles.Clear()
+		Me.theDecompiledVrdFiles.Clear()
+		Me.theDecompiledDeclareSequenceQciFiles.Clear()
+		Me.theDecompiledFirstTextureBmpFiles.Clear()
+		Me.theDecompiledLogFiles.Clear()
+		Me.theDecompiledFirstDebugFiles.Clear()
+
+		Dim status As AppEnums.StatusMessage
+		Try
+			status = Me.DecompileOneModel(inputMDL)
+		Catch ex As Exception
+			status = StatusMessage.Error
+		Finally
+			If Me.theLogFileStream IsNot Nothing Then
+				Me.theLogFileStream.Flush()
+				Me.theLogFileStream = Nothing
+			End If
+		End Try
+
+		Return status
+	End Function
+
 #End Region
 
 #Region "Private Methods"
@@ -293,7 +326,7 @@ Public Class Decompiler
 			'	status = StatusMessage.Error
 			'	Return status
 			'End Try
-			If TheApp.Settings.DecompileMode = InputOptions.File Then
+			If TheApp.Settings.DecompileMode = InputOptions.File AndAlso Not TheApp.IsCommandLine Then
 				status = Me.CreateLogTextFile(mdlPathFileName)
 				'If status = StatusMessage.Error Then
 				'	Return status
@@ -491,8 +524,9 @@ Public Class Decompiler
 				FileManager.CreatePath(logPath)
 				logPathFileName = Path.Combine(logPath, logFileName)
 
-				Me.theLogFileStream = File.CreateText(logPathFileName)
-				Me.theLogFileStream.AutoFlush = True
+				Dim logFile As StreamWriter = File.CreateText(logPathFileName)
+				logFile.AutoFlush = True
+				Me.theLogFileStream = logFile
 
 				If File.Exists(logPathFileName) Then
 					Me.theDecompiledLogFiles.Add(FileManager.GetRelativePathFileName(Me.theOutputPath, logPathFileName))
@@ -1083,7 +1117,7 @@ Public Class Decompiler
 	Private theModelOutputPath As String
 	Private theOutputPathOrModelOutputFileName As String
 
-	Private theLogFileStream As StreamWriter
+	Private theLogFileStream As TextWriter
 
 	Private theDecompiledQcFiles As BindingListEx(Of String)
 	Private theDecompiledFirstRefSmdFiles As BindingListEx(Of String)

@@ -39,7 +39,12 @@ Module Main
 		TheApp.Init()
 
 		If argv.Length > 0 Then
-			Return CommandLine.Run(argv)
+			Dim cmdResult As ParseResult = CommandLine.Run(argv)
+			If cmdResult = ParseResult.Success Then
+				Return 0
+			ElseIf cmdResult = ParseResult.Err Then
+				Return 1
+			End If
 		End If
 
 		If TheApp.Settings.AppIsSingleInstance Then

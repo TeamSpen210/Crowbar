@@ -75,6 +75,9 @@
     <DefineDebug>false</DefineDebug>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="FluentCommandLineParser, Version=1.4.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\FluentCommandLineParser.1.4.3\lib\net35\FluentCommandLineParser.dll</HintPath>
+    </Reference>
     <Reference Include="Steamworks.NET, Version=12.0.0.0, Culture=neutral, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>Resources\Steamworks.NET.dll</HintPath>
@@ -898,6 +901,7 @@
     <Content Include="- Documents\License.txt" />
     <Content Include="- Documents\History 2014.txt" />
     <Content Include="- Documents\Specifications.txt" />
+    <None Include="packages.config" />
     <None Include="Resources\26_Grey_PayPal_Pill_Button.png" />
     <Content Include="Resources\WordWrap.png" />
     <None Include="Resources\WordWrapOff.png" />
