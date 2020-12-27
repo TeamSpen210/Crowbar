@@ -65,6 +65,7 @@ Public Class App
 		Me.theDecompiler = New Decompiler()
 		Me.theCompiler = New Compiler()
 		Me.thePacker = New Packer()
+		Me.theIsCommandLine = False
 		'Me.theModelViewer = New Viewer()
 
 		Dim documentsPath As String
@@ -162,6 +163,15 @@ Public Class App
 		End Get
 		Set(ByVal value As List(Of String))
 			Me.theSmdFilesWritten = value
+		End Set
+	End Property
+
+	Public Property IsCommandLine As Boolean
+		Get
+			Return theIsCommandLine
+		End Get
+		Set
+			theIsCommandLine = value
 		End Set
 	End Property
 
@@ -454,6 +464,8 @@ Public Class App
 
 	' Location of the exe.
 	Private theAppPath As String
+	' If being automated by the command line.
+	Private theIsCommandLine As Boolean
 
 	Private Const theSteamAPIDLLFileName As String = "steam_api.dll"
 	Private Const theSteamworksDotNetDLLFileName As String = "Steamworks.NET.dll"
