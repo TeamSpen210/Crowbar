@@ -10,7 +10,7 @@ Imports System.Runtime.InteropServices
 
 ' Review the values of the assembly attributes
 
-<Assembly: AssemblyTitle("Crowbar")> 
+<Assembly: AssemblyTitle("Crowbar, modified by TeamSpen210")> 
 <Assembly: AssemblyDescription("Source Engine Modding Tool")> 
 <Assembly: AssemblyCompany("ZeqMacaw")> 
 <Assembly: AssemblyProduct("Crowbar")>
@@ -33,7 +33,7 @@ Imports System.Runtime.InteropServices
 ' by using the '*' as shown below:
 ' <Assembly: AssemblyVersion("1.0.*")> 
 
-<Assembly: AssemblyVersion("0.71.1.0")>
-<Assembly: AssemblyFileVersion("0.71.1.0")>
+<Assembly: AssemblyVersion("0.21071.0.0")>
+<Assembly: AssemblyFileVersion("0.21071.0.0")>
 
 <Assembly: NeutralResourcesLanguageAttribute("en-US")> 

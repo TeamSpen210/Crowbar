@@ -53,11 +53,11 @@ Module Main
 		Else 
 			form = MainForm
 		End If
+		form.Text = My.Application.Info.Title
 		
 		'Disable the rest of the app, should only be used via command line.
 		form.MainTabControl.Controls.Clear()
 		form.MainTabControl.Controls.Add(form.AboutTabPage)
-		form.Text += ", modified by TeamSpen210"
 			
 		If TheApp.Settings.AppIsSingleInstance Then
 			SingleInstanceApplication.Run(New MainForm(), AddressOf StartupNextInstanceEventHandler)
