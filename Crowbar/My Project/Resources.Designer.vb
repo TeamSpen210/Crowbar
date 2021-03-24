@@ -22,7 +22,7 @@ Namespace My.Resources
     '''<summary>
     '''  A strongly-typed resource class, for looking up localized strings, etc.
     '''</summary>
-    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0"),  _
+    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0"),  _
      Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
      Global.System.Runtime.CompilerServices.CompilerGeneratedAttribute(),  _
      Global.Microsoft.VisualBasic.HideModuleNameAttribute()>  _
@@ -107,14 +107,14 @@ Namespace My.Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to GoldSource and Source Engine Modding Toolset:
+        '''  Looks up a localized string similar to Crowbar modified by TeamSpen210, with command line arguments for automatic decompiling.
+        '''
+        '''GoldSource and Source Engine Modding Toolset:
         '''* Decompiler of MDL and related files.
         '''* Compiler interface to StudioMDL.exe tool.
         '''* Model viewer interface to Half-Life Model Viewer tool.
         '''* Unpacker of Fairy Tale Busters APK, Tactical Intervention FPX, Garry&apos;s Mod GMA, Vampire: The Masquerade - Bloodlines VPK files, and Source-engine VPK files.
-        '''* Packer interface to Garry&apos;s Mod GMA and Source-engine VPK packer tools.
-        '''* Downloader of Workshop items from any Steam game that allows public downloads.
-        '''* Pub [rest of string was truncated]&quot;;.
+        '''* Packer interface to Garry&apos;s Mod GMA and Source-engine VPK packer tool [rest of string was truncated]&quot;;.
         '''</summary>
         Friend ReadOnly Property About_ProductDescription() As String
             Get
@@ -132,7 +132,7 @@ Namespace My.Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to https://steamcommunity.com/groups/CrowbarTool/discussions/1/.
+        '''  Looks up a localized string similar to https://github.com/TeamSpen210/HammerAddons/issues/new.
         '''</summary>
         Friend ReadOnly Property BugReportLink() As String
             Get
@@ -141,7 +141,7 @@ Namespace My.Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to https://steamcommunity.com/groups/CrowbarTool/discussions/1/.
+        '''  Looks up a localized string similar to https://github.com/TeamSpen210/HammerAddons/issues/new.
         '''</summary>
         Friend ReadOnly Property BugReportLink1() As String
             Get
